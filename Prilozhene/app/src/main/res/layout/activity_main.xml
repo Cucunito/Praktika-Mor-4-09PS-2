@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8F9FA"
+    android:padding="16dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TaskManager"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A1E2B"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="16dp"/>
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:hint="Поиск задач..."
+            android:background="@drawable/search_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:imeOptions="actionDone"/>
+    </LinearLayout>
+
+    <!-- ВЕРТИКАЛЬНЫЕ КНОПКИ (БЕЗ ПАНЕЛИ) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp">
+
+        <Button
+            android:id="@+id/tasksChip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="✓ Задачи"
+            android:textSize="14sp"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:backgroundTint="#031c38"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/projectsChip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="📁 Проекты"
+            android:textSize="14sp"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:backgroundTint="#031c38"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/teamChip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="👥 Команда"
+            android:textSize="14sp"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:backgroundTint="#031c38"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <!-- My Tasks Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="МОИ ЗАДАЧИ"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#9AA6B8"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Empty State -->
+    <TextView
+        android:id="@+id/emptyTasksText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="✨ У вас пока нет задач\nСоздайте новую задачу и назначьте её на себя"
+        android:textSize="14sp"
+        android:textColor="#999999"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone"/>
+
+    <!-- Tasks RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myTasksRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:visibility="visible"/>
+
+    <!-- Active Projects Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="АКТИВНЫЕ ПРОЕКТЫ"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#9AA6B8"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Project Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/projectCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TaskFlow"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#1A1E2B"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="65%"
+                            android:textSize="14sp"
+                            android:textColor="#2196F3"
+                            android:layout_marginEnd="8dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15/23 задач"
+                            android:textSize="14sp"
+                            android:textColor="#9AA6B8"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Разработка системы управления задачами"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="16dp"/>
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progress="65"
+                android:progressTint="#2196F3"
+                android:progressBackgroundTint="#E0E0E0"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Bottom Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/newTaskButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="➕ Новая задача"
+            android:backgroundTint="#2196F3"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/exportButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="📤 Экспорт"
+            android:backgroundTint="#9E9E9E"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</LinearLayout>
